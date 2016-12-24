@@ -21,7 +21,18 @@ import static com.akasiyanik.rs.util.StreamUtils.*;
 public class ExperimentRunner {
 
     public static void main(String[] args) {
-        new ExperimentRunner(100, 5, 100).run();
+        //        n = 100
+        new ExperimentRunner(100, 5, 10000).run();
+        new ExperimentRunner(100, 10, 10000).run();
+        new ExperimentRunner(100, 20, 10000).run();
+        //        n = 1000
+        new ExperimentRunner(1000, 10, 10000).run();
+        new ExperimentRunner(1000, 20, 10000).run();
+        new ExperimentRunner(1000, 100, 10000).run();
+        //        n = 10000
+        new ExperimentRunner(10000, 10, 10000).run();
+        new ExperimentRunner(10000, 20, 10000).run();
+        new ExperimentRunner(10000, 100, 10000).run();
     }
 
     private int n;
@@ -37,9 +48,13 @@ public class ExperimentRunner {
     }
 
     public void run() {
+        System.out.println("n = " + n + ", m = " + m + ", count = " + experimentCount);
         simpleSampleExperiment();
+        System.out.println("simple - done");
         weightedSampleExperiment(1);
+        System.out.println("weight1 - done");
         weightedSampleExperiment(2);
+        System.out.println("weight2 - done");
     }
 
     private void simpleSampleExperiment() {
