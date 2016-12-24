@@ -29,7 +29,7 @@ public class WeightedReservoirSampling<T> implements ReservoirSampling<WeightedI
     @Override
     public void pushItem(WeightedItem<T> item) {
         double r = Math.pow(random.nextDouble(), 1 / item.getWeight());
-        if (queue.size() < m) {
+        if (queue.size() <= m) {
             queue.add(new WeightedItem<>(item.getItem(), r));
         } else if (queue.peek().getWeight() < r) {
             queue.poll();

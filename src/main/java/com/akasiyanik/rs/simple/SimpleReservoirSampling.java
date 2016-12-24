@@ -30,7 +30,7 @@ public class SimpleReservoirSampling<T> implements ReservoirSampling<T> {
         if (i < m) {
             sample.add(item);
         } else {
-            int index = random.nextInt(0, i);
+            int index = random.nextInt(0, i + 1);
             if (index < m) {
                 sample.set(index, item);
             }
